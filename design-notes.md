@@ -1,4 +1,4 @@
-# Gampleay Implementation:
+# Gameplay Implementation:
 
 - 2D sidescroller/runner
 - Must pick one of three dialogue choices, which then is executed by a command:

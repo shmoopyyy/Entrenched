@@ -2,6 +2,7 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+.DS_Store
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
@@ -9,7 +10,9 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-/Assets
+/Assets/Pixel Adventure 1
+*.png
+!/Assets/Scripts
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

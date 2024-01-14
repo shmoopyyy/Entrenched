@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7957bf4056d774eb1ade05d9923e7684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritePath: passerby_sprites
+  leftBound: -8
+  moveSpeed: 5
 --- !u!1 &5218877918674348293
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,5 +145,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530d0fc9f03684818bd631098a518313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBound: -6
-  moveSpeed: 3
+  leftBound: -8
+  moveSpeed: 5

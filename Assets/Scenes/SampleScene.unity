@@ -682,7 +682,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bbffd6a97714d068212188de629a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  msg: hello
+  clock: 0
+  score: 0
+  stability: 100
+  numStrikes: 0
+--- !u!1 &2102495773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5218877918674348293, guid: 4075a239ede424f5e93a3e538294eea6, type: 3}
+  m_PrefabInstance: {fileID: 3421474619262383324}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2102495777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102495773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7957bf4056d774eb1ade05d9923e7684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spritePath: passerby_sprites
+  leftBound: -8
+  moveSpeed: 5
 --- !u!1001 &3421474619262383324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -691,6 +714,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3445527524392644125, guid: 4075a239ede424f5e93a3e538294eea6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4779463722179695296, guid: 4075a239ede424f5e93a3e538294eea6, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -743,5 +770,8 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 2585249992958214739, guid: 4075a239ede424f5e93a3e538294eea6, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5218877918674348293, guid: 4075a239ede424f5e93a3e538294eea6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2102495777}
   m_SourcePrefab: {fileID: 100100000, guid: 4075a239ede424f5e93a3e538294eea6, type: 3}

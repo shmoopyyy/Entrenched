@@ -16,7 +16,9 @@ public class ScoreDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      textMeshPro.text = GM.distance.ToString();
+      string msg = "Distance: " + ((int)GM.distance).ToString("D4") + " meters";
+      textMeshPro.text = msg;
+      // textMeshPro.text = GM.distance.ToString();
 
     }
 }

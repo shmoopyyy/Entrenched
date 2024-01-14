@@ -29,8 +29,13 @@ public class Passerby : MonoBehaviour
   {
 
     float currPos = transform.position.x;
-    if (movementOn && currPos >= leftBound) {
-      transform.Translate(Vector2.left *moveSpeed * Time.deltaTime);
+    if (movementOn) {
+      if (currPos >= leftBound) {
+        transform.Translate(Vector2.left *moveSpeed * Time.deltaTime);
+      } else {
+        Object.Destroy(this.gameObject);
+      }
+
     }
 
   }

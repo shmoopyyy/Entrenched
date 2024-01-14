@@ -601,6 +601,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609b61b3b85964097bf7f4bd8a0b36c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spritePath: passerby_sprites
+  sprite_version: 0
+  prefabPasserby: {fileID: 2102495777}
 --- !u!1 &1825309791
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +716,17 @@ MonoBehaviour:
   score: 0
   stability: 100
   numStrikes: 0
+--- !u!114 &2102495777 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2107572248467942592, guid: 4075a239ede424f5e93a3e538294eea6, type: 3}
+  m_PrefabInstance: {fileID: 3421474619262383324}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7957bf4056d774eb1ade05d9923e7684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3421474619262383324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -767,7 +781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5218877918674348293, guid: 4075a239ede424f5e93a3e538294eea6, type: 3}
       propertyPath: m_Name
-      value: passerby
+      value: passerby_prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

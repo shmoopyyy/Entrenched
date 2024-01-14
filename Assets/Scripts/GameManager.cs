@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
   public const int STRIKE_LIMIT = 3;
   public const int STABILITY_LIMIT = 100;
+  public const int CLOCK_LIMIT = 1000;
 
   // Singleton instance
   public static GameManager instance;
@@ -33,8 +34,8 @@ public class GameManager : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    clock = (clock + 1) % 100;
-    if (clock % 100 == 0) {
+    clock = (clock + 1) % CLOCK_LIMIT;
+    if (clock % CLOCK_LIMIT == 0) {
       Debug.Log("Hello! clock value is : " + clock);
 
     }

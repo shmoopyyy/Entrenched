@@ -6,8 +6,10 @@ public class Passerby : MonoBehaviour
 {
   /* Sprite parameters */
   public string spritePath = "passerby_sprites";
-  private SpriteRenderer spriteRenderer;
+  public SpriteRenderer spriteRenderer;
   private Sprite[] sprites;
+  private int sprite_version;
+  private int num_sprites;
 
   /* Movement parameters */
   public float leftBound = -8;
@@ -19,7 +21,9 @@ public class Passerby : MonoBehaviour
   {
     GM = GameManager.instance;
     spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-    sprites = Resources.LoadAll<Sprite>("sprites");
+    sprites = Resources.LoadAll<Sprite>("Characters");
+    num_sprites = sprites.Length;
+    Debug.Log("there are " + num_sprites + " sprites loaded.");
 
   }
 
@@ -28,6 +32,8 @@ public class Passerby : MonoBehaviour
   {
     if (GM.clock == 0) {
       Debug.Log("clock is zero");
+      sprite_version = (sprite_version + 1) % num_sprites;
+      spriteRenderer.sprite = sprites[sprite_version];
     }
 
     float currPos = transform.position.x;

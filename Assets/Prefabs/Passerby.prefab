@@ -99,5 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6393485670803821691}
   leftBound: -80
-  moveSpeed: 64
+  moveSpeed: 35
   movementOn: 0

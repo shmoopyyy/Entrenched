@@ -9,8 +9,6 @@ public class Passerby : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    // private GameManager GM = GameManager.instance;
-    Debug.Log(GameManager.instance.msg);
 
   }
 

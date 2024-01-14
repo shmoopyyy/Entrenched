@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+  public const int STRIKE_LIMIT = 3;
+  public const int STABILITY_LIMIT = 100;
+
+  // Singleton instance
   public static GameManager instance;
   void Awake()
   {
@@ -12,8 +16,13 @@ public class GameManager : MonoBehaviour
     };
   }
 
-  public string msg = "hello";
+  // 'global' state trackers
   public int clock = 0;
+  public int score = 0;
+  public int stability = STABILITY_LIMIT;
+  public int numStrikes = 0;
+
+
   // Start is called before the first frame update
   void Start()
   {
@@ -25,7 +34,10 @@ public class GameManager : MonoBehaviour
   void Update()
   {
     clock = (clock + 1) % 100;
-    Debug.Log(clock);
+    if (clock % 100 == 0) {
+      Debug.Log("Hello! clock value is : " + clock);
+
+    }
 
   }
 }

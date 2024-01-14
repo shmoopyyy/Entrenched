@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
   public const int STRIKE_LIMIT = 3;
   public const int STABILITY_LIMIT = 100;
   public const int CLOCK_LIMIT = 1000;
-  public const double distanceScalar = 1.0;
+  public const double DISTANCE_SCALAR = 1.0;
+  public const float STABILITY_SCALAR = 3;
 
   // Singleton instance
   public static GameManager instance;
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
   // 'global' state trackers
   public double distance = 0;
   public int score = 0;
-  public int stability = STABILITY_LIMIT;
+  public float stability = STABILITY_LIMIT;
   public int numStrikes = 0;
 
 
@@ -36,7 +37,12 @@ public class GameManager : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    distance += (Time.deltaTime * distanceScalar);
+    distance += (Time.deltaTime * DISTANCE_SCALAR);
+    if (stability > 0) {
+      stability -= (Time.deltaTime * STABILITY_SCALAR);
+    } else {
+      stability = 0;
+    }
     // if (distance % CLOCK_LIMIT == 0) {
     //   Debug.Log("Hello! clock value is : " + distance);
 

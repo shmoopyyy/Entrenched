@@ -10,7 +10,7 @@ public class MovePasserby : MonoBehaviour
         
     }
 
-    public float leftBound = -6;
+    public float leftBound = -8;
     public float moveSpeed = 5;
     // Update is called once per frame
     void Update()

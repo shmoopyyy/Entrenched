@@ -742,8 +742,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: passerby
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3445527524392644125, guid: 4075a239ede424f5e93a3e538294eea6, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

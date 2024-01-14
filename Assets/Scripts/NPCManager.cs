@@ -50,12 +50,7 @@ public class NPCManager : MonoBehaviour
       newPasserby.movementOn = true;
 
     }
-    
-    // if (GM.clock == 0) {
-    //   Debug.Log("Switching sprites...");
-    //   sprite_version = (sprite_version + 1) % num_sprites;
-    //   spriteRenderer.sprite = sprites[sprite_version];
-    // }
+
 
   }
 }

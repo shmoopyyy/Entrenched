@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
   void Awake()
   {
     if(instance == null) {
-      instance = this
+      instance = this;
     }; 
   }
 

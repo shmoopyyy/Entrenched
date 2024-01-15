@@ -43,9 +43,6 @@ public class RestabilizeGame : MonoBehaviour
   // Update is called once per frame
   IEnumerator boxesWin()
   {
-    // while (source.isPlaying){
-    //   yield return null;
-    // }
     yield return new WaitForSeconds(1.5f);
     Debug.Log("End minigame");
     Object.Destroy(this.gameObject);

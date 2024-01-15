@@ -8,11 +8,18 @@ public class Scrolling : MonoBehaviour
 
   [SerializeField]
   private Renderer bgRenderer;
+  private GameManager GM;
 
+  void Start()
+  {
+    GM = GameManager.instance;
+  }
   // Update is called once per frame
   void Update()
   {
-    bgRenderer.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0);
+    if (GM.timeOn) {
+      bgRenderer.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0);
+    }
       
   }
 }

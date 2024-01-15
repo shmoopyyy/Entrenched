@@ -39,18 +39,19 @@ public class NPCManager : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    // If time for a new NPC, clone one from template and fill in details
-    if (Input.GetKeyDown(KeyCode.P)) {
-      Debug.Log("pressed spacebar");
+    if (GM.timeOn) {
+      // If time for a new NPC, clone one from template and fill in details
+      if (Input.GetKeyDown(KeyCode.P)) {
+        Debug.Log("pressed spacebar");
 
-      sprite_version = Random.Range(0, num_sprites);
-      Passerby newPasserby;
-      newPasserby = Instantiate(prefabPasserby);
-      newPasserby.spriteRenderer.sprite = sprites[sprite_version];
-      newPasserby.movementOn = true;
+        sprite_version = Random.Range(0, num_sprites);
+        Passerby newPasserby;
+        newPasserby = Instantiate(prefabPasserby);
+        newPasserby.spriteRenderer.sprite = sprites[sprite_version];
+        newPasserby.movementOn = true;
+      }
 
     }
-
 
   }
 }

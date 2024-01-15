@@ -42,23 +42,22 @@ public class AmbientManager : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    // If time for a new NPC, clone one from template and fill in details
-    if (Input.GetKeyDown(KeyCode.Return)) {
-      if (Random.Range(0,2) == 0) {
-        int sprite_version = Random.Range(0, num_sprites_fg);
-        FGPasserby newPasserby;
-        newPasserby = Instantiate(prefabFGPasserby);
-        newPasserby.spriteRenderer.sprite = treeSprites[sprite_version];
-        newPasserby.movementOn = true;
-      } else {
-        int sprite_version = Random.Range(0, num_sprites_bg);
-        BGPasserby newPasserby;
-        newPasserby = Instantiate(prefabBGPasserby);
-        newPasserby.spriteRenderer.sprite = bgSprites[sprite_version];
-        newPasserby.movementOn = true;
-
+    if (GM.timeOn) {
+      // If time for a new NPC, clone one from template and fill in details
+      if (Input.GetKeyDown(KeyCode.Return)) {
+        if (Random.Range(0,2) == 0) {
+          int sprite_version = Random.Range(0, num_sprites_fg);
+          FGPasserby newPasserby;
+          newPasserby = Instantiate(prefabFGPasserby);
+          newPasserby.spriteRenderer.sprite = treeSprites[sprite_version];
+        } else {
+          int sprite_version = Random.Range(0, num_sprites_bg);
+          BGPasserby newPasserby;
+          newPasserby = Instantiate(prefabBGPasserby);
+          newPasserby.spriteRenderer.sprite = bgSprites[sprite_version];
+        }
       }
-
+      // more functionality when time is on
     }
 
   }

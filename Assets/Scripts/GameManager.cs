@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
   // 'global' state trackers
   public double distance = 0;
+  public bool timeOn = true;
   public int score = 0;
   public float stability = STABILITY_LIMIT;
   public int numStrikes = 0;
@@ -40,25 +41,29 @@ public class GameManager : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    distance += (Time.deltaTime * DISTANCE_SCALAR);
-    if (stability > 0) {
-      stability -= (Time.deltaTime * STABILITY_SCALAR);
-    } else {
-      stability = 0;
-    }
-    // if (distance % CLOCK_LIMIT == 0) {
-    //   Debug.Log("Hello! clock value is : " + distance);
+    if (timeOn) {
+      distance += (Time.deltaTime * DISTANCE_SCALAR);
+      if (stability > 0) {
+        stability -= (Time.deltaTime * STABILITY_SCALAR);
+      } else {
+        stability = 0;
+      }
 
-    // }
-    if (Input.GetKeyDown(KeyCode.B)) {
-      Instantiate(boxGamePrefab);
-    }
-    if (Input.GetKeyDown(KeyCode.D)) {
-      Instantiate(ddrGamePrefab);
-    }
-    if (Input.GetKeyDown(KeyCode.R)) {
-      Instantiate(reactionGamePrefab);
+      // Temporary minigame activators
+      if (Input.GetKeyDown(KeyCode.B)) {
+        Instantiate(boxGamePrefab);
+      }
+      if (Input.GetKeyDown(KeyCode.D)) {
+        Instantiate(ddrGamePrefab);
+      }
+      if (Input.GetKeyDown(KeyCode.R)) {
+        Instantiate(reactionGamePrefab);
+      }
     }
 
+    // Time toggle, always listening
+    if (Input.GetKeyDown(KeyCode.Escape)) {
+      timeOn = !timeOn;
+    }
   }
 }

@@ -10,12 +10,12 @@ public class FGPasserby : MonoBehaviour
   /* Movement parameters */
   public float leftBound = -8;
   public float moveSpeed = 5;
-  public bool movementOn = false;
   private GameManager GM;
 
   // Start is called before the first frame update
   void Start()
   {
+    GM = GameManager.instance;
 
   }
 
@@ -23,14 +23,13 @@ public class FGPasserby : MonoBehaviour
   void Update()
   {
 
-    float currPos = transform.position.x;
-    if (movementOn) {
+    if (GM.timeOn) {
+      float currPos = transform.position.x;
       if (currPos >= leftBound) {
         transform.Translate(Vector2.left *moveSpeed * Time.deltaTime);
       } else {
         Object.Destroy(this.gameObject);
       }
-
     }
 
   }

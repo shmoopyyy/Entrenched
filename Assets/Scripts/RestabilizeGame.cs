@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RestabilizeGame : MonoBehaviour
 {
+  public const float STABILITY_REWARD = 20;
   public AudioSource source;
   public AudioClip[] clips;
   public AudioClip winClip;
@@ -17,10 +18,11 @@ public class RestabilizeGame : MonoBehaviour
   public GameObject[] boxes;
   public GameObject background;
 
-  private Collider2D[] overlaps;
+  private GameManager GM;
   // Start is called before the first frame update
   void Start()
   {
+    GM = GameManager.instance;
     source = gameObject.GetComponent<AudioSource>();
     Bounds bgBounds = background.GetComponent<BoxCollider2D>().bounds;
     for (int i = 0; i < boxes.Length; i++) {
@@ -45,12 +47,17 @@ public class RestabilizeGame : MonoBehaviour
   {
     yield return new WaitForSeconds(1.5f);
     Debug.Log("End minigame");
+    replenishStability();
     Object.Destroy(this.gameObject);
+  }
+
+  void replenishStability()
+  {
+    GM.stability = Mathf.Min(GM.stability + STABILITY_REWARD, GameManager.STABILITY_LIMIT);
   }
 
   void Update()
   {
-    // overlaps = Physics2D.OverlapAreaAll();
     bool box0, box1, box2 = false;
 
     box0 = boxCollider0 == Physics2D.OverlapArea(slotCollider0.bounds.min, slotCollider0.bounds.max, LayerMask.GetMask("Box0"));

@@ -37,13 +37,6 @@ public class StabilityMeter : MonoBehaviour
     void Update()
     {
       SetStability((int)GM.stability);
-      if(Input.GetKeyDown(KeyCode.UpArrow)) {
-        GM.stability = Mathf.Min(GM.stability + 20, GameManager.STABILITY_LIMIT);
-        SetStability((int)GM.stability);
-      }
-      if(Input.GetKeyDown(KeyCode.DownArrow)) {
-        GM.stability = Mathf.Max(GM.stability - 20, 0);
-        SetStability((int)GM.stability);
-      }
+
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RestabilizeGame : MonoBehaviour
 {
+  public AudioSource source;
+  public AudioClip[] clips;
   public BoxCollider2D slotCollider0;
   public BoxCollider2D slotCollider1;
   public BoxCollider2D slotCollider2;
@@ -16,7 +18,8 @@ public class RestabilizeGame : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-      
+    source = gameObject.GetComponent<AudioSource>();
+
   }
 
   private bool solved0;
@@ -34,16 +37,23 @@ public class RestabilizeGame : MonoBehaviour
     if (box0 && box1 && box2) {
       Debug.Log("You win!");
     }
+
     if (box0 && !solved0) {
       Debug.Log("solved box 0");
+      int soundIndex = Random.Range(0, clips.Length);
+      source.PlayOneShot(clips[soundIndex]);
     }
 
     if (box1 && !solved1) {
       Debug.Log("solved box 1");
+      int soundIndex = Random.Range(0, clips.Length);
+      source.PlayOneShot(clips[soundIndex]);
     }
-      
+
     if (box2 && !solved2) {
       Debug.Log("solved box 2");
+      int soundIndex = Random.Range(0, clips.Length);
+      source.PlayOneShot(clips[soundIndex]);
     }
 
     solved0 = box0;

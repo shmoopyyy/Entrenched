@@ -654,6 +654,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!82 &966238938 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7319603658766028539, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
+  m_PrefabInstance: {fileID: 1424371349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1300261462
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,6 +799,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6042660410291414887, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
+      propertyPath: source
+      value: 
+      objectReference: {fileID: 966238938}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

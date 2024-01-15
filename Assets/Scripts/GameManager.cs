@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
   }
 
   // 'global' state trackers
+  public static bool isWinner = false;
   public double distance = 0;
   public bool timeOn = true;
   public int score = 0;
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
       if (storyModeEnabled) {
         if (distance >= END_CUTSCENE_DIST) {
           // load ending cutscene
+          isWinner = true;
           CutsceneManager.panelsPath = CUTSCENE_PATHS[END_SCENE];
           SceneManager.LoadScene(cutScene);
         } else if (distance >= MID_CUTSCENE_DIST) {

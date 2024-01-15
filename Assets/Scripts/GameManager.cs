@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
   public const int OPEN_SCENE = 0;
   public const int MID_SCENE = 1;
   public const int END_SCENE = 2;
-  public const string[] CUTSCENE_PATHS = {
+  public string[] CUTSCENE_PATHS = {
     "Cutscenes/Opening",
     "Cutscenes/Middle",
     "Cutscenes/Ending"

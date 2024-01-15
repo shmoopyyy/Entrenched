@@ -1857,6 +1857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bbffd6a97714d068212188de629a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainScene: MainGame
   cutScene: Cutscene
   CUTSCENE_PATHS:
   - Cutscenes/Opening

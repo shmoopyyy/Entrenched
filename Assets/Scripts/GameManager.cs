@@ -81,15 +81,18 @@ public class GameManager : MonoBehaviour
 
       // Temporary minigame activators
       if (Input.GetKeyDown(KeyCode.B)) {
-        Instantiate(boxGamePrefab);
+        RestabilizeGame minigame = Instantiate(boxGamePrefab);
+        minigame.transform.position += new Vector3(0, 0, -3);
       }
       if (Input.GetKeyDown(KeyCode.D)) {
         timeOn = false;
-        Instantiate(ddrGamePrefab);
+        DDRGame minigame = Instantiate(ddrGamePrefab);
+        minigame.transform.position += new Vector3(0, 0, -3);
       }
       if (Input.GetKeyDown(KeyCode.R)) {
         timeOn = false;
-        Instantiate(reactionGamePrefab);
+        ReactionGame minigame = Instantiate(reactionGamePrefab);
+        minigame.transform.position += new Vector3(0, 0, -3);
       }
     }
 

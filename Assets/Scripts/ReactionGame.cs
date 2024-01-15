@@ -23,10 +23,13 @@ public class ReactionGame : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    transform.position += new Vector3(0, 0, -3);
     GM = GameManager.instance;
     bgOffset = background.transform.position;
     bgOffset.z = 0;
     Debug.Log(bgOffset);
+    inSecondHalf = false;
+    isOnScreen = false;
 
     offset = Random.Range(0, MAX_DELAY);
     timeLeft += offset;
@@ -37,6 +40,7 @@ public class ReactionGame : MonoBehaviour
   {
     yield return new WaitForSeconds(seconds);
     GM.timeOn = true;
+    Object.Destroy(buttonPromptDisplay.gameObject);
     Object.Destroy(this.gameObject);
   }
   // Update is called once per frame
@@ -47,11 +51,13 @@ public class ReactionGame : MonoBehaviour
       if (!inSecondHalf) {
         inSecondHalf = true;
         isOnScreen = true;
+        Debug.Log("button on screen now");
         buttonPromptDisplay = Instantiate(buttonPrompt);
-        buttonPromptDisplay.transform.position = bgOffset;
+        buttonPromptDisplay.transform.position = bgOffset + new Vector3(0,0,-6.2f);
         timeLeft = REACTION_TIME;
       } else {
         // remove button from screen, time is up
+        isOnScreen = false;
         Object.Destroy(buttonPromptDisplay.gameObject);
       }
     }

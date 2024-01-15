@@ -34,7 +34,8 @@ public class DDRGame : MonoBehaviour
     {
       directionNum = Random.Range(0, arrows.Length);
       currentArrow = Instantiate(arrows[directionNum]);
-      currentArrow.transform.position = Vector3.up * 10f + bgOffset;
+      Vector3 zPush = new Vector3(0, 0, -5);
+      currentArrow.transform.position = Vector3.up * 10f + bgOffset + zPush;
       currentArrowCollider = currentArrow.GetComponentInChildren<PolygonCollider2D>();
       Debug.Log(currentArrowCollider);
     }

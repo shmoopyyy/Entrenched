@@ -62,13 +62,6 @@ public class NPCManager : MonoBehaviour
         StartCoroutine(summon());
       } 
 
-      if (Input.GetKeyDown(KeyCode.P)) {
-        // sprite_version = Random.Range(0, num_sprites);
-        // Passerby newPasserby;
-        // newPasserby = Instantiate(prefabPasserby);
-        // newPasserby.spriteRenderer.sprite = sprites[sprite_version];
-      }
-
     }
 
   }

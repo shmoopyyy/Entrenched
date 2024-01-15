@@ -15,7 +15,7 @@ public class NPCManager : MonoBehaviour
   public Passerby prefabPasserby;
   
   public static bool passerbyPresent = false;
-  public const float MAX_GEN_OFFSET = 1f;
+  public const float MAX_GEN_OFFSET = 4f;
   private float genOffset;
 
   private GameManager GM;

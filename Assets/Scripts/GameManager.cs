@@ -6,9 +6,12 @@ public class GameManager : MonoBehaviour
 {
   public const int STRIKE_LIMIT = 3;
   public const int STABILITY_LIMIT = 100;
-  public const int CLOCK_LIMIT = 1000;
   public const double DISTANCE_SCALAR = 1.0;
   public const float STABILITY_SCALAR = 3;
+
+  /* Story mode info */
+  public const float MID_CUTSCENE_DIST = 100;
+  public const float END_CUTSCENE_DIST = 200;
 
   // Singleton instance
   public static GameManager instance;
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
   public int score = 0;
   public float stability = STABILITY_LIMIT;
   public int numStrikes = 0;
+  public bool storyMode = true;
 
   public RestabilizeGame boxGamePrefab;
   public DDRGame ddrGamePrefab;

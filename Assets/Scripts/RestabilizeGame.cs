@@ -19,6 +19,9 @@ public class RestabilizeGame : MonoBehaviour
       
   }
 
+  private bool solved0;
+  private bool solved1;
+  private bool solved2;
   // Update is called once per frame
   void Update()
   {
@@ -31,6 +34,20 @@ public class RestabilizeGame : MonoBehaviour
     if (box0 && box1 && box2) {
       Debug.Log("You win!");
     }
+    if (box0 && !solved0) {
+      Debug.Log("solved box 0");
+    }
+
+    if (box1 && !solved1) {
+      Debug.Log("solved box 1");
+    }
       
+    if (box2 && !solved2) {
+      Debug.Log("solved box 2");
+    }
+
+    solved0 = box0;
+    solved1 = box1;
+    solved2 = box2;
   }
 }

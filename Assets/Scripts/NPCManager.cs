@@ -48,7 +48,6 @@ public class NPCManager : MonoBehaviour
         Passerby newPasserby;
         newPasserby = Instantiate(prefabPasserby);
         newPasserby.spriteRenderer.sprite = sprites[sprite_version];
-        newPasserby.movementOn = true;
       }
 
     }

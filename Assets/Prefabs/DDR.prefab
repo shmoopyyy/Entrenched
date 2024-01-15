@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e403ee50b82374e3abc732031815d4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyCodes: 12010000140100001301000011010000
   arrows:
   - {fileID: 4235782294938087987, guid: da67e4f971ea84d4586f1f359269e645, type: 3}
   - {fileID: 4235782294938087987, guid: e5738651191fd45e69228b3605e049ad, type: 3}
@@ -152,8 +153,18 @@ MonoBehaviour:
   inputBoxCollider: {fileID: 8590878711789249724}
   killCollider: {fileID: 1653044886787478571}
   source: {fileID: 7319603658766028539}
-  successNotes: []
-  failNotes: []
+  successNotes:
+  - {fileID: 8300000, guid: d28f3b5c03fc04e1e9996da7e241998c, type: 3}
+  - {fileID: 8300000, guid: 384a2836f2946479183bad75e9056eb2, type: 3}
+  - {fileID: 8300000, guid: b86be4f814af144528c37a485c2c24b5, type: 3}
+  - {fileID: 8300000, guid: 7efd9b3fcec2549a78eb5e7b042ca8b7, type: 3}
+  - {fileID: 8300000, guid: f71e16b409b3f4a6482bad09e4c64f10, type: 3}
+  failNotes:
+  - {fileID: 8300000, guid: 0d2500ba27eb54096b9c880d6334353c, type: 3}
+  - {fileID: 8300000, guid: 280e8908c375a4760b450bde0a1ada02, type: 3}
+  - {fileID: 8300000, guid: 3ea184a35b20a4300ac2b175d5a7b070, type: 3}
+  - {fileID: 8300000, guid: 0be176ff82a614808aa053337089d816, type: 3}
+  - {fileID: 8300000, guid: cfb839ebcc2474fb888156ecb534fbe7, type: 3}
   background: {fileID: 7397104357955712044}
 --- !u!1 &6350933652716658260
 GameObject:

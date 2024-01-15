@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DDRGame : MonoBehaviour
 {
-  public const float MOVE_SPEED = 4;
+  public const float MOVE_SPEED = 8;
   public const int ARROW_LIMIT = 5;
   public KeyCode[] keyCodes = {KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.UpArrow};
   private int currentArrowNum = 0;
@@ -32,8 +32,6 @@ public class DDRGame : MonoBehaviour
       directionNum = Random.Range(0, arrows.Length);
       currentArrow = Instantiate(arrows[directionNum]);
       currentArrow.transform.position = Vector3.up * 6.5f + bgOffset;
-      // currentArrow.transform.localScale = new Vector3(1f, 1f, 1f);
-      // currentArrow.transform.localPosition = new Vector3(20f, 6.5f, 1.8f);
       currentArrowCollider = currentArrow.GetComponentInChildren<PolygonCollider2D>();
       Debug.Log(currentArrowCollider);
     }
@@ -46,9 +44,8 @@ public class DDRGame : MonoBehaviour
       newArrow();
     }
 
-    IEnumerator ddrLose()
+    IEnumerator ddrExit()
     {
-      Debug.Log("You lose!");
       yield return new WaitForSeconds(1.5f);
       Object.Destroy(this.gameObject);
     }
@@ -59,20 +56,21 @@ public class DDRGame : MonoBehaviour
       if (!(currentArrowNum < ARROW_LIMIT)) {
         Debug.Log("You win!");
         Object.Destroy(currentArrow.gameObject);
-        Object.Destroy(this.gameObject);
+        StartCoroutine(ddrExit());
       }
 
       if (currentArrow.gameObject != null) {
         isInBox = currentArrowCollider == Physics2D.OverlapArea(inputBoxCollider.bounds.min, inputBoxCollider.bounds.max, LayerMask.GetMask("Box0"));
         isInKillBox = currentArrowCollider == Physics2D.OverlapArea(killCollider.bounds.min, killCollider.bounds.max, LayerMask.GetMask("Box0"));
         if (isInKillBox) {
-          // source.PlayOneShot(failNotes[currentArrowNum]);
+          source.PlayOneShot(failNotes[currentArrowNum]);
           Object.Destroy(currentArrow.gameObject);
-          StartCoroutine(ddrLose());
+          Debug.Log("You lose!");
+          StartCoroutine(ddrExit());
         }
         if (isInBox) {
           if (Input.GetKeyDown(keyCodes[directionNum])) {
-            // source.PlayOneShot(successNotes[currentArrowNum]);
+            source.PlayOneShot(successNotes[currentArrowNum]);
             Object.Destroy(currentArrow.gameObject);
             currentArrowNum += 1;
             newArrow();

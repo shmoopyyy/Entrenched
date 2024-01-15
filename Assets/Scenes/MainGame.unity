@@ -414,8 +414,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.25}
-  m_SizeDelta: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -0.09600067, y: 0.39899993}
+  m_SizeDelta: {x: -0.1930008, y: 0.7979002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &422719939
 MonoBehaviour:
@@ -823,7 +823,7 @@ SpriteRenderer:
   m_Size: {x: 15.6, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &771962607
@@ -1602,8 +1602,8 @@ MonoBehaviour:
 
     0000 meters'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 33ad01eb91b6a42b4bc7e0ec655568bb, type: 2}
-  m_sharedMaterial: {fileID: 5430614902480215695, guid: 33ad01eb91b6a42b4bc7e0ec655568bb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 457290c6967df4058b0816dfa0a9c07a, type: 2}
+  m_sharedMaterial: {fileID: 5430614902480215695, guid: 457290c6967df4058b0816dfa0a9c07a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

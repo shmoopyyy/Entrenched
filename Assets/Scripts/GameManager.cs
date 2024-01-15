@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,16 @@ public class GameManager : MonoBehaviour
   /* Story mode info */
   public const float MID_CUTSCENE_DIST = 100;
   public const float END_CUTSCENE_DIST = 200;
+  
+  public string cutScene = "Cutscene";
+  public const int OPEN_SCENE = 0;
+  public const int MID_SCENE = 1;
+  public const int END_SCENE = 2;
+  public const string[] CUTSCENE_PATHS = {
+    "Cutscenes/Opening",
+    "Cutscenes/Middle",
+    "Cutscenes/Ending"
+  };
 
   // Singleton instance
   public static GameManager instance;
@@ -52,6 +63,19 @@ public class GameManager : MonoBehaviour
         stability -= (Time.deltaTime * STABILITY_SCALAR);
       } else {
         stability = 0;
+      }
+
+      // If story mode on, check if reached cutscene distance
+      if (storyModeEnabled) {
+        if (distance >= END_CUTSCENE_DIST) {
+          // load ending cutscene
+          CutsceneManager.panelsPath = CUTSCENE_PATHS[END_SCENE];
+          SceneManager.LoadScene(cutScene);
+        } else if (distance >= MID_CUTSCENE_DIST) {
+          // load middle cutscene
+          CutsceneManager.panelsPath = CUTSCENE_PATHS[MID_SCENE];
+          SceneManager.LoadScene(cutScene);
+        }
       }
 
       // Temporary minigame activators

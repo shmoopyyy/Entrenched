@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CutsceneManager : MonoBehaviour
 {
-  public string spritePath;
+  public static string panelsPath;
   public SpriteRenderer panelView;
-  public Sprite[] panels;
+  private Sprite[] panels;
   private int numPanels;
   private int currentPanel = 0;
   private GameManager GM;
@@ -19,12 +19,11 @@ public class CutsceneManager : MonoBehaviour
     Debug.Log("current panel is now " + currentPanel);
   }
 
-
   // Start is called before the first frame update
   void Start()
   {
     GM = GameManager.instance;
-    panels = Resources.LoadAll<Sprite>(spritePath);
+    panels = Resources.LoadAll<Sprite>(panelsPath);
     numPanels = panels.Length;
     panelView.sprite = panels[0];
     Debug.Log("there are " + numPanels + " panels loaded.");

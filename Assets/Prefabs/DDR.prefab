@@ -154,6 +154,7 @@ MonoBehaviour:
   source: {fileID: 7319603658766028539}
   successNotes: []
   failNotes: []
+  background: {fileID: 7397104357955712044}
 --- !u!1 &6350933652716658260
 GameObject:
   m_ObjectHideFlags: 0

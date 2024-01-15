@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CutsceneManager : MonoBehaviour
 {
@@ -15,7 +16,11 @@ public class CutsceneManager : MonoBehaviour
   {
     Debug.Log("old panel is " + currentPanel);
     currentPanel = Mathf.Min(currentPanel + 1, numPanels);
-    panelView.sprite = panels[currentPanel];
+    if (currentPanel >= numPanels) {
+      SceneManager.LoadScene("MainGame");
+    } else {
+      panelView.sprite = panels[currentPanel];
+    }
     Debug.Log("current panel is now " + currentPanel);
   }
 

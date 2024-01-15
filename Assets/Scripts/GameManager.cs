@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+  public string mainScene = "MainGame";
   public const int STRIKE_LIMIT = 3;
   public const int STABILITY_LIMIT = 100;
   public const double DISTANCE_SCALAR = 1.0;

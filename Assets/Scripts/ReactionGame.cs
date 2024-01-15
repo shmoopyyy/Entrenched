@@ -21,11 +21,6 @@ public class ReactionGame : MonoBehaviour
   private GameManager GM;
 
   // Start is called before the first frame update
-  IEnumerator delay(float seconds)
-  {
-    Debug.Log("waiting " + seconds + " seconds");
-    yield return new WaitForSeconds(seconds);
-  }
   void Start()
   {
     GM = GameManager.instance;

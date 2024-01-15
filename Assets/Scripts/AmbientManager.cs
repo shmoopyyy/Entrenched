@@ -6,6 +6,9 @@ public class AmbientManager : MonoBehaviour
 {
   public static AmbientManager instance;
 
+  public const float MIN_GEN_TIME = 2;
+  public const float GEN_OFFSET = 1;
+
   public string spritePath = "background_sprites";
   private Sprite[] treeSprites;
   private Sprite[] bgSprites;
@@ -13,6 +16,7 @@ public class AmbientManager : MonoBehaviour
   private int num_sprites_bg;
   public BGPasserby prefabBGPasserby;
   public FGPasserby prefabFGPasserby;
+  private float timeToGen;
 
   private GameManager GM;
   void Awake()
@@ -22,6 +26,12 @@ public class AmbientManager : MonoBehaviour
       instance = this;
     }
   }
+
+  void resetTime()
+  {
+    float offset = Random.Range(0, GEN_OFFSET);
+    timeToGen = MIN_GEN_TIME + offset;
+  }  
 
   // Start is called before the first frame update
   void Start()
@@ -44,7 +54,9 @@ public class AmbientManager : MonoBehaviour
   {
     if (GM.timeOn) {
       // If time for a new NPC, clone one from template and fill in details
-      if (Input.GetKeyDown(KeyCode.Return)) {
+      timeToGen -= Time.deltaTime;
+      if (timeToGen <= 0) {
+        resetTime();
         if (Random.Range(0,2) == 0) {
           int sprite_version = Random.Range(0, num_sprites_fg);
           FGPasserby newPasserby;

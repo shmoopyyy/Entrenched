@@ -18,6 +18,7 @@ public class ReactionGame : MonoBehaviour
   private float offset;
   private float timeLeft = START_DELAY;
   private Vector3 bgOffset;
+  private GameManager GM;
 
   // Start is called before the first frame update
   IEnumerator delay(float seconds)
@@ -27,6 +28,7 @@ public class ReactionGame : MonoBehaviour
   }
   void Start()
   {
+    GM = GameManager.instance;
     bgOffset = background.transform.position;
     bgOffset.z = 0;
     Debug.Log(bgOffset);
@@ -39,6 +41,7 @@ public class ReactionGame : MonoBehaviour
   IEnumerator gameExit(float seconds)
   {
     yield return new WaitForSeconds(seconds);
+    GM.timeOn = true;
     Object.Destroy(this.gameObject);
   }
   // Update is called once per frame

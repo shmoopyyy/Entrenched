@@ -54,9 +54,11 @@ public class GameManager : MonoBehaviour
         Instantiate(boxGamePrefab);
       }
       if (Input.GetKeyDown(KeyCode.D)) {
+        timeOn = false;
         Instantiate(ddrGamePrefab);
       }
       if (Input.GetKeyDown(KeyCode.R)) {
+        timeOn = false;
         Instantiate(reactionGamePrefab);
       }
     }

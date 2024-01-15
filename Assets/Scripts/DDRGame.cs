@@ -27,6 +27,7 @@ public class DDRGame : MonoBehaviour
   private bool isInKillBox = false;
   private Vector3 bgOffset;
   private bool gameOver = false;
+  private GameManager GM;
 
     // Start is called before the first frame update
     void newArrow()
@@ -39,6 +40,7 @@ public class DDRGame : MonoBehaviour
     }
     void Start()
     {
+      GM = GameManager.instance;
       bgOffset = background.transform.position;
       bgOffset.z = 0;
       Debug.Log(bgOffset);
@@ -49,6 +51,7 @@ public class DDRGame : MonoBehaviour
     IEnumerator ddrExit()
     {
       yield return new WaitForSeconds(1.5f);
+      GM.timeOn = true;
       Object.Destroy(this.gameObject);
     }
     IEnumerator shortDelay()

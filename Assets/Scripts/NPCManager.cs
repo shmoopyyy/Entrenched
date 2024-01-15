@@ -13,6 +13,10 @@ public class NPCManager : MonoBehaviour
   public int sprite_version;
   private int num_sprites;
   public Passerby prefabPasserby;
+  
+  public static bool passerbyPresent = false;
+  public const float MAX_GEN_OFFSET = 1f;
+  private float genOffset;
 
   private GameManager GM;
   void Awake()
@@ -36,18 +40,33 @@ public class NPCManager : MonoBehaviour
       
   }
 
+  IEnumerator summon()
+  {
+    Debug.Log("summoning...");
+    genOffset = Random.Range(0, MAX_GEN_OFFSET);
+    yield return new WaitForSeconds(genOffset);
+
+    sprite_version = Random.Range(0, num_sprites);
+    Passerby newPasserby;
+    newPasserby = Instantiate(prefabPasserby);
+    newPasserby.spriteRenderer.sprite = sprites[sprite_version];
+  }
+
   // Update is called once per frame
   void Update()
   {
     if (GM.timeOn) {
       // If time for a new NPC, clone one from template and fill in details
-      if (Input.GetKeyDown(KeyCode.P)) {
-        Debug.Log("pressed spacebar");
+      if (!passerbyPresent) {
+        passerbyPresent = true;
+        StartCoroutine(summon());
+      } 
 
-        sprite_version = Random.Range(0, num_sprites);
-        Passerby newPasserby;
-        newPasserby = Instantiate(prefabPasserby);
-        newPasserby.spriteRenderer.sprite = sprites[sprite_version];
+      if (Input.GetKeyDown(KeyCode.P)) {
+        // sprite_version = Random.Range(0, num_sprites);
+        // Passerby newPasserby;
+        // newPasserby = Instantiate(prefabPasserby);
+        // newPasserby.spriteRenderer.sprite = sprites[sprite_version];
       }
 
     }

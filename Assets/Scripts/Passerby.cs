@@ -29,6 +29,7 @@ public class Passerby : MonoBehaviour
       if (currPos >= leftBound) {
         transform.Translate(Vector2.left *moveSpeed * Time.deltaTime);
       } else {
+        NPCManager.passerbyPresent = false;
         Object.Destroy(this.gameObject);
       }
 

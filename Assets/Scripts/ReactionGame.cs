@@ -11,11 +11,13 @@ public class ReactionGame : MonoBehaviour
   public AudioClip winClip;
   public AudioClip loseClip;
   public GameObject buttonPrompt;
+  public GameObject background;
   private GameObject buttonPromptDisplay;
   private bool inSecondHalf = false;
   private bool isOnScreen = false;
   private float offset;
   private float timeLeft = START_DELAY;
+  private Vector3 bgOffset;
 
   // Start is called before the first frame update
   IEnumerator delay(float seconds)
@@ -25,6 +27,10 @@ public class ReactionGame : MonoBehaviour
   }
   void Start()
   {
+    bgOffset = background.transform.position;
+    bgOffset.z = 0;
+    Debug.Log(bgOffset);
+
     offset = Random.Range(0, MAX_DELAY);
     timeLeft += offset;
   }
@@ -44,6 +50,7 @@ public class ReactionGame : MonoBehaviour
         inSecondHalf = true;
         isOnScreen = true;
         buttonPromptDisplay = Instantiate(buttonPrompt);
+        buttonPromptDisplay.transform.position = bgOffset;
         timeLeft = REACTION_TIME;
       } else {
         // remove button from screen, time is up

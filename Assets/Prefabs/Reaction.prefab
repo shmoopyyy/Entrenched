@@ -146,6 +146,7 @@ MonoBehaviour:
   winClip: {fileID: 8300000, guid: dcf9ac2e0611e472ba708d217d80372c, type: 3}
   loseClip: {fileID: 8300000, guid: d65e5f894db4a418bbeb65cfabcd3935, type: 3}
   buttonPrompt: {fileID: 2452265405143496952, guid: 8a394e238879947ab945e476c34d0357, type: 3}
+  background: {fileID: 7397104357955712044}
 --- !u!1 &7397104357955712044
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class NPCManager : MonoBehaviour
 
     // initialize set of allowable skins
     GM = GameManager.instance;
-    sprites = Resources.LoadAll<Sprite>("Characters");
+    sprites = Resources.LoadAll<Sprite>(spritePath);
     num_sprites = sprites.Length;
     Debug.Log("there are " + num_sprites + " sprites loaded.");
       

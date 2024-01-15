@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Passerby : MonoBehaviour
+public class FGPasserby : MonoBehaviour
 {
-  /* Sprite parameters */
+ /* Sprite parameters */
   public SpriteRenderer spriteRenderer;
 
   /* Movement parameters */
@@ -16,7 +16,6 @@ public class Passerby : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    // spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
   }
 

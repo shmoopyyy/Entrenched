@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Passerby : MonoBehaviour
+public class BGPasserby : MonoBehaviour
 {
-  /* Sprite parameters */
+ /* Sprite parameters */
   public SpriteRenderer spriteRenderer;
 
   /* Movement parameters */

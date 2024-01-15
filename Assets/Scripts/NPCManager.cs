@@ -40,7 +40,7 @@ public class NPCManager : MonoBehaviour
   void Update()
   {
     // If time for a new NPC, clone one from template and fill in details
-    if (Input.GetKeyDown(KeyCode.Space)) {
+    if (Input.GetKeyDown(KeyCode.P)) {
       Debug.Log("pressed spacebar");
 
       sprite_version = Random.Range(0, num_sprites);

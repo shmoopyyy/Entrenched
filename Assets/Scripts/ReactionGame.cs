@@ -6,7 +6,7 @@ public class ReactionGame : MonoBehaviour
 {
   public const float START_DELAY = 2f;
   public const float MAX_DELAY = 1.5f;
-  public const float REACTION_TIME = 0.2f;  // 200 milliseconds
+  public const float REACTION_TIME = 0.8f;  // 800 milliseconds
   public AudioSource source;
   public AudioClip winClip;
   public AudioClip loseClip;
@@ -20,6 +20,7 @@ public class ReactionGame : MonoBehaviour
   // Start is called before the first frame update
   IEnumerator delay(float seconds)
   {
+    Debug.Log("waiting " + seconds + " seconds");
     yield return new WaitForSeconds(seconds);
   }
   void Start()
@@ -29,6 +30,11 @@ public class ReactionGame : MonoBehaviour
   }
   
 
+  IEnumerator gameExit(float seconds)
+  {
+    yield return new WaitForSeconds(seconds);
+    Object.Destroy(this.gameObject);
+  }
   // Update is called once per frame
   void Update()
   {
@@ -49,15 +55,12 @@ public class ReactionGame : MonoBehaviour
       if (isOnScreen) {
         source.PlayOneShot(winClip);
         Debug.Log("You win!");
-        StartCoroutine(delay(1.5f));
         Object.Destroy(buttonPromptDisplay.gameObject);
-        Object.Destroy(this.gameObject);
+        StartCoroutine(gameExit(1.5f));
       } else {
         source.PlayOneShot(loseClip);
         Debug.Log("You lose!");
-        StartCoroutine(delay(2f));
-        Object.Destroy(buttonPromptDisplay.gameObject);
-        Object.Destroy(this.gameObject);
+        StartCoroutine(gameExit(2f));
       }
     }
 

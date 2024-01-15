@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
   public RestabilizeGame boxGamePrefab;
   public DDRGame ddrGamePrefab;
+  public ReactionGame reactionGamePrefab;
 
   // Start is called before the first frame update
   void Start()
@@ -54,6 +55,9 @@ public class GameManager : MonoBehaviour
     }
     if (Input.GetKeyDown(KeyCode.D)) {
       Instantiate(ddrGamePrefab);
+    }
+    if (Input.GetKeyDown(KeyCode.R)) {
+      Instantiate(reactionGamePrefab);
     }
 
   }

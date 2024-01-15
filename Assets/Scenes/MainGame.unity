@@ -484,7 +484,7 @@ RectTransform:
   m_GameObject: {fileID: 823509034}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 921074209}
@@ -493,7 +493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.41, y: 0.93}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 29.8806, y: 20.8409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &823509036
@@ -541,8 +541,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888627984}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -100}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2011311695}
@@ -640,8 +640,8 @@ Canvas:
   m_GameObject: {fileID: 921074208}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -830,7 +830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434428368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalPosition: {x: 0, y: 0, z: 200}
   m_LocalScale: {x: 355.55557, y: 100.00001, z: 0.5555556}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1200,7 +1200,7 @@ Canvas:
   m_GameObject: {fileID: 1991769616}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1293,9 +1293,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 0
+  timeOn: 1
   score: 0
   stability: 100
   numStrikes: 0
+  storyMode: 1
   boxGamePrefab: {fileID: 6042660410291414887, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
   ddrGamePrefab: {fileID: 5292072595244756764, guid: 825456d7c8a0e498ea32fd4f8a437978, type: 3}
   reactionGamePrefab: {fileID: 7568528395718765976, guid: 47d0e257a791d445a98347138c85b747, type: 3}

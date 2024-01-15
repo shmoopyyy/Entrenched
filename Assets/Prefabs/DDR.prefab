@@ -153,6 +153,7 @@ MonoBehaviour:
   inputBoxCollider: {fileID: 8590878711789249724}
   killCollider: {fileID: 1653044886787478571}
   source: {fileID: 7319603658766028539}
+  winClip: {fileID: 8300000, guid: dcf9ac2e0611e472ba708d217d80372c, type: 3}
   successNotes:
   - {fileID: 8300000, guid: d28f3b5c03fc04e1e9996da7e241998c, type: 3}
   - {fileID: 8300000, guid: 384a2836f2946479183bad75e9056eb2, type: 3}

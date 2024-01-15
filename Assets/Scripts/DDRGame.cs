@@ -18,6 +18,7 @@ public class DDRGame : MonoBehaviour
   public BoxCollider2D killCollider;
 
   public AudioSource source;
+  public AudioClip winClip;
   public AudioClip[] successNotes;
   public AudioClip[] failNotes;
   public GameObject background;
@@ -25,6 +26,7 @@ public class DDRGame : MonoBehaviour
   private bool isInBox = false;
   private bool isInKillBox = false;
   private Vector3 bgOffset;
+  private bool gameOver = false;
 
     // Start is called before the first frame update
     void newArrow()
@@ -46,15 +48,22 @@ public class DDRGame : MonoBehaviour
 
     IEnumerator ddrExit()
     {
-      yield return new WaitForSeconds(0.5f);
+      yield return new WaitForSeconds(1.5f);
       Object.Destroy(this.gameObject);
+    }
+    IEnumerator shortDelay()
+    {
+      yield return new WaitForSeconds(0.2f);
+      source.PlayOneShot(winClip);
     }
 
     // Update is called once per frame
     void Update()
     {
-      if (!(currentArrowNum < ARROW_LIMIT)) {
+      if (!(currentArrowNum < ARROW_LIMIT) && !gameOver) {
         Debug.Log("You win!");
+        gameOver = true;
+        StartCoroutine(shortDelay());
         Object.Destroy(currentArrow.gameObject);
         StartCoroutine(ddrExit());
       }

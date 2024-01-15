@@ -8,9 +8,11 @@ public class Passerby : MonoBehaviour
   public SpriteRenderer spriteRenderer;
 
   /* Movement parameters */
-  public float leftBound = -8;
-  public float moveSpeed = 5;
+  public float promptBound = 90;
+  public float leftBound = -110;
+  public float moveSpeed = 35;
   private GameManager GM;
+  public bool prompted = false;
 
   // Start is called before the first frame update
   void Start()
@@ -26,6 +28,10 @@ public class Passerby : MonoBehaviour
 
     float currPos = transform.position.x;
     if (GM.timeOn) {
+      if (!prompted && currPos <= promptBound) {
+        prompted = true;
+        Debug.Log("Asking a question!");
+      }
       if (currPos >= leftBound) {
         transform.Translate(Vector2.left *moveSpeed * Time.deltaTime);
       } else {

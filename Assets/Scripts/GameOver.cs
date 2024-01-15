@@ -7,10 +7,10 @@ public class GameOver : MonoBehaviour
 {
   public string titleScene = "TitleScreen";
   private GameManager GM;
-  
+  public TMPro.TextMeshProUGUI marqueeText;
+
   public void toTitle()
   {
-    GM = GameManager.instance;
     // GM.resetGame();   // implement this
     SceneManager.LoadScene(titleScene);
   }
@@ -18,12 +18,18 @@ public class GameOver : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-      
+    GM = GameManager.instance;
+    if (GameManager.isWinner) {
+      marqueeText.text = "You Win!";
+    } else {
+      marqueeText.text = "Game Over!";
+    }
+
   }
 
   // Update is called once per frame
   void Update()
   {
-      
+
   }
 }

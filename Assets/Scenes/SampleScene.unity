@@ -803,6 +803,10 @@ PrefabInstance:
       propertyPath: source
       value: 
       objectReference: {fileID: 966238938}
+    - target: {fileID: 6042660410291414887, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
+      propertyPath: winClip
+      value: 
+      objectReference: {fileID: 8300000, guid: dcf9ac2e0611e472ba708d217d80372c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

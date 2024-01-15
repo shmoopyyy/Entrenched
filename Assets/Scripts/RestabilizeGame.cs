@@ -6,6 +6,7 @@ public class RestabilizeGame : MonoBehaviour
 {
   public AudioSource source;
   public AudioClip[] clips;
+  public AudioClip winClip;
   public BoxCollider2D slotCollider0;
   public BoxCollider2D slotCollider1;
   public BoxCollider2D slotCollider2;
@@ -34,8 +35,9 @@ public class RestabilizeGame : MonoBehaviour
     box0 = boxCollider0 == Physics2D.OverlapArea(slotCollider0.bounds.min, slotCollider0.bounds.max, LayerMask.GetMask("Box0"));
     box1 = boxCollider1 == Physics2D.OverlapArea(slotCollider1.bounds.min, slotCollider1.bounds.max, LayerMask.GetMask("Box1"));
     box2 = boxCollider2 == Physics2D.OverlapArea(slotCollider2.bounds.min, slotCollider2.bounds.max, LayerMask.GetMask("Box2"));
-    if (box0 && box1 && box2) {
+    if (box0 && box1 && box2 && (!solved0 || !solved1 || !solved2)) {
       Debug.Log("You win!");
+      source.PlayOneShot(winClip);
     }
 
     if (box0 && !solved0) {

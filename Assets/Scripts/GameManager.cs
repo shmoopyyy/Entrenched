@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
   public int score = 0;
   public float stability = STABILITY_LIMIT;
   public int numStrikes = 0;
-  public bool storyMode = true;
+  public static bool storyModeEnabled = true;
 
   public RestabilizeGame boxGamePrefab;
   public DDRGame ddrGamePrefab;
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
   void Start()
   {
     Debug.Log("This is the start of game manager.");
+    Debug.Log("Story mode on?: " + storyModeEnabled);
 
   }
 

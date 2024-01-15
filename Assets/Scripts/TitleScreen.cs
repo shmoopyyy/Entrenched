@@ -6,16 +6,15 @@ using UnityEngine.SceneManagement;
 public class TitleScreen : MonoBehaviour
 {
   public string mainScene = "MainGame";
-  public static bool storyModeEnabled;
   public void StoryModeButton()
   {
-    storyModeEnabled = true;
+    GameManager.storyModeEnabled = true;
     SceneManager.LoadScene(mainScene);
   }
 
   public void EndlessModeButton()
   {
-    storyModeEnabled = false;
+    GameManager.storyModeEnabled = false;
     Debug.Log("Endless mode clicked");
     SceneManager.LoadScene(mainScene);
   }

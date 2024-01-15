@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
   public int numStrikes = 0;
 
   public RestabilizeGame boxGamePrefab;
+  public DDRGame ddrGamePrefab;
 
   // Start is called before the first frame update
   void Start()
@@ -50,6 +51,9 @@ public class GameManager : MonoBehaviour
     // }
     if (Input.GetKeyDown(KeyCode.B)) {
       Instantiate(boxGamePrefab);
+    }
+    if (Input.GetKeyDown(KeyCode.D)) {
+      Instantiate(ddrGamePrefab);
     }
 
   }

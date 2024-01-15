@@ -654,11 +654,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!82 &966238938 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7319603658766028539, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
-  m_PrefabInstance: {fileID: 1424371349}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1300261462
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,14 +747,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5539095315990794118, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539095315990794118, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5539095315990794118, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -31.630814
       objectReference: {fileID: 0}
@@ -799,14 +786,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6042660410291414887, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
-      propertyPath: source
-      value: 
-      objectReference: {fileID: 966238938}
-    - target: {fileID: 6042660410291414887, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
-      propertyPath: winClip
-      value: 
-      objectReference: {fileID: 8300000, guid: dcf9ac2e0611e472ba708d217d80372c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1378,6 +1357,7 @@ MonoBehaviour:
   score: 0
   stability: 100
   numStrikes: 0
+  boxGamePrefab: {fileID: 6042660410291414887, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}
 --- !u!1 &2144157561
 GameObject:
   m_ObjectHideFlags: 0

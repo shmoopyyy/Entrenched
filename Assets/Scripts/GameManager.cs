@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
   public float stability = STABILITY_LIMIT;
   public int numStrikes = 0;
 
+  public RestabilizeGame boxGamePrefab;
 
   // Start is called before the first frame update
   void Start()
@@ -47,6 +48,9 @@ public class GameManager : MonoBehaviour
     //   Debug.Log("Hello! clock value is : " + distance);
 
     // }
+    if (Input.GetKeyDown(KeyCode.B)) {
+      Instantiate(boxGamePrefab);
+    }
 
   }
 }

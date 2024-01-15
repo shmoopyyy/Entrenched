@@ -14,12 +14,26 @@ public class RestabilizeGame : MonoBehaviour
   public BoxCollider2D boxCollider0;
   public BoxCollider2D boxCollider1;
   public BoxCollider2D boxCollider2;
+  public GameObject[] boxes;
+  public GameObject background;
 
   private Collider2D[] overlaps;
   // Start is called before the first frame update
   void Start()
   {
     source = gameObject.GetComponent<AudioSource>();
+    Bounds bgBounds = background.GetComponent<BoxCollider2D>().bounds;
+    for (int i = 0; i < boxes.Length; i++) {
+      float x = Random.Range(bgBounds.min.x, bgBounds.max.x);
+      float y = Random.Range(bgBounds.min.y, bgBounds.max.y);
+      float z = boxes[i].transform.position.z;
+      Debug.Log("Random position for box " + i + ", (" + x + ", " + y + ", " + z + ")");
+      Vector3 bgOffset = background.transform.position / background.transform.localScale.x;
+      bgOffset.z = 0;
+      Debug.Log("bg position: " + bgOffset);
+
+      boxes[i].transform.position = new Vector3(x, y, z) + bgOffset;
+    }
 
   }
 

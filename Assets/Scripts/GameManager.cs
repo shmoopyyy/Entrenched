@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
   public const int STRIKE_LIMIT = 3;
   public const int STABILITY_LIMIT = 100;
   public const double DISTANCE_SCALAR = 1.0;
-  public const float STABILITY_SCALAR = 3;
+  public const float STABILITY_SCALAR = 1.2f;
 
   /* Story mode info */
   public const float MID_CUTSCENE_DIST = 100;
@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
   };
 
   public bool miniWin = false;
+  public bool miniOver = false;
   public int questionValue = 0;
   public bool nextDialogue = false;
   public GameObject dialogSet;
@@ -118,6 +119,23 @@ public class GameManager : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.R)) {
         startReaction();
       }
+      if (miniOver) {
+        if (questionValue < 0 && !miniWin) {
+          miniOver = false;
+          numStrikes += 1;
+        } else if (questionValue < 0 && miniWin) {
+          miniOver = false;
+          stability -= 10;
+          questionValue = 0;
+          miniWin = false;
+        } else if (!miniWin && questionValue >=0) {
+          miniOver = false;
+          stability -= 10;
+          questionValue = 0;
+          miniWin = false;
+        } 
+      }
+
     }
 
     // Time toggle, always listening

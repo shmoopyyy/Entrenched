@@ -32,6 +32,7 @@ public class Passerby : MonoBehaviour
       if (!prompted && currPos <= promptBound) {
         prompted = true;
         Debug.Log("Asking a question!");
+        GM.questionValue = 0;
         GM.nextDialogue = true;
         GM.dialogSet.SetActiveRecursively(true);
       }

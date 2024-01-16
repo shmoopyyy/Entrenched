@@ -39,6 +39,7 @@ public class ReactionGame : MonoBehaviour
   IEnumerator gameExit(float seconds)
   {
     yield return new WaitForSeconds(seconds);
+    GM.miniOver = true;
     GM.timeOn = true;
     Object.Destroy(buttonPromptDisplay.gameObject);
     Object.Destroy(this.gameObject);
@@ -66,11 +67,13 @@ public class ReactionGame : MonoBehaviour
       if (isOnScreen) {
         source.PlayOneShot(winClip);
         Debug.Log("You win!");
+        GM.miniWin = true;
         Object.Destroy(buttonPromptDisplay.gameObject);
         StartCoroutine(gameExit(1.5f));
       } else {
         source.PlayOneShot(loseClip);
         Debug.Log("You lose!");
+        GM.miniWin = false;
         StartCoroutine(gameExit(2f));
       }
     }

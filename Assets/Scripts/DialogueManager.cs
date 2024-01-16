@@ -102,7 +102,7 @@ public class DialogueManager : MonoBehaviour
         optionPanel.SetActive(false);
         AdvanceDialogue();
         GM.questionValue = stabilityScore;
-        if(Random.Range(0,1) == 0) {
+        if(Random.Range(0,1f) <= 0.5f) {
           GM.startDDR();
         } else {
           GM.startReaction();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DDRGame : MonoBehaviour
 {
-  public const float MOVE_SPEED = 15;
+  public const float MOVE_SPEED = 20;
   public const int ARROW_LIMIT = 5;
   public KeyCode[] keyCodes = {KeyCode.DownArrow, KeyCode.LeftArrow, KeyCode.RightArrow, KeyCode.UpArrow};
   private int currentArrowNum = 0;
@@ -52,6 +52,7 @@ public class DDRGame : MonoBehaviour
     IEnumerator ddrExit()
     {
       yield return new WaitForSeconds(1.5f);
+      GM.miniOver = true;
       GM.timeOn = true;
       Object.Destroy(this.gameObject);
     }
@@ -66,6 +67,7 @@ public class DDRGame : MonoBehaviour
     {
       if (!(currentArrowNum < ARROW_LIMIT) && !gameOver) {
         Debug.Log("You win!");
+        GM.miniWin = true;
         gameOver = true;
         StartCoroutine(shortDelay());
         Object.Destroy(currentArrow.gameObject);
@@ -79,6 +81,7 @@ public class DDRGame : MonoBehaviour
           source.PlayOneShot(failNotes[currentArrowNum]);
           Object.Destroy(currentArrow.gameObject);
           Debug.Log("You lose!");
+          GM.miniWin = false;
           StartCoroutine(ddrExit());
         }
         if (isInBox && Input.GetKeyDown(keyCodes[directionNum])) {
@@ -93,6 +96,7 @@ public class DDRGame : MonoBehaviour
           source.PlayOneShot(failNotes[currentArrowNum]);
           Object.Destroy(currentArrow.gameObject);
           Debug.Log("You lose!");
+          GM.miniWin = false;
           StartCoroutine(ddrExit());
 
         }

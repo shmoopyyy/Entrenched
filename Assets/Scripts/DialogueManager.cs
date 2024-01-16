@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour
         if (GM.nextDialogue)
         {
           GM.nextDialogue = false;
+          GM.awaitingAnswer = true;
             if (story.canContinue)
             {
                 nametag.text = "Passerby"; // Replace with actual character name
@@ -94,6 +95,7 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
+        GM.awaitingAnswer = false;
         story.ChooseChoiceIndex(choiceIndex);
         foreach (Transform child in optionPanel.transform)
         {

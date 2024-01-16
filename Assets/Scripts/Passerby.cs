@@ -39,6 +39,12 @@ public class Passerby : MonoBehaviour
       if (currPos >= leftBound) {
         transform.Translate(Vector2.left *moveSpeed * Time.deltaTime);
       } else {
+        if (GM.awaitingAnswer) {
+          GM.awaitingAnswer = false;
+          Debug.Log("You didn't answer, strike!");
+          GM.numStrikes += 1;
+          GM.dialogSet.SetActiveRecursively(false);
+        }
         NPCManager.passerbyPresent = false;
         Object.Destroy(this.gameObject);
       }

@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     "Cutscenes/Ending"
   };
 
+  public bool awaitingAnswer = false;
   public bool miniWin = false;
   public bool miniOver = false;
   public int questionValue = 0;

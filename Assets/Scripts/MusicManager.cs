@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+  public static MusicManager instance;
   public AudioSource mainTheme2;
   public AudioSource muffledTheme2;
   public AudioSource mainTheme3;
@@ -13,6 +14,13 @@ public class MusicManager : MonoBehaviour
 
   private GameManager GM;
   // Start is called before the first frame update
+  void Awake()
+  {
+    if(instance == null) {
+      instance = this;
+    }
+
+  }
   void Start()
   {
     GM = GameManager.instance;
@@ -32,7 +40,7 @@ public class MusicManager : MonoBehaviour
     muffledTheme3.Play();
   }
 
-  void toggleMuffled() 
+  public void toggleMuffled() 
   {
     if (twoKidMode) {
       if (!muffleOn) {
@@ -60,10 +68,6 @@ public class MusicManager : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (Input.GetKeyDown(KeyCode.M)) {
-      // swap music
-      toggleMuffled();
-    }
       
   }
 }

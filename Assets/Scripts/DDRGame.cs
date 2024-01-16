@@ -42,6 +42,7 @@ public class DDRGame : MonoBehaviour
     void Start()
     {
       GM = GameManager.instance;
+      MusicManager.instance.toggleMuffled();
       bgOffset = background.transform.position;
       bgOffset.z = 0;
       Debug.Log(bgOffset);
@@ -52,6 +53,7 @@ public class DDRGame : MonoBehaviour
     IEnumerator ddrExit()
     {
       yield return new WaitForSeconds(1.5f);
+      MusicManager.instance.toggleMuffled();
       GM.miniOver = true;
       GM.timeOn = true;
       Object.Destroy(this.gameObject);

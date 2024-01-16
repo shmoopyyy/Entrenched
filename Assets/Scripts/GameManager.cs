@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
   public const float STABILITY_SCALAR = 1.2f;
 
   /* Story mode info */
-  public const float MID_CUTSCENE_DIST = 100;
-  public const float END_CUTSCENE_DIST = 200;
+  public const float MID_CUTSCENE_DIST = 10;
+  public const float END_CUTSCENE_DIST = 20;
   
   public string cutScene = "Cutscene";
   public const int OPEN_SCENE = 0;
@@ -50,6 +50,15 @@ public class GameManager : MonoBehaviour
   public float stability = STABILITY_LIMIT;
   public int numStrikes = 0;
   public static bool storyModeEnabled = true;
+  public static bool startedOnce = false;
+  public static bool threeKids = false;
+  public static float initDistance = 0;
+  public SpriteRenderer playerRender;
+  public Sprite threeSprite;
+  public Sprite twoSprite;
+  public static bool doneScene0 = false;
+  public static bool doneScene1 = false;
+  public static bool muffleMusic = false;
 
   public RestabilizeGame boxGamePrefab;
   public DDRGame ddrGamePrefab;
@@ -60,6 +69,14 @@ public class GameManager : MonoBehaviour
   {
     Debug.Log("This is the start of game manager.");
     Debug.Log("Story mode on?: " + storyModeEnabled);
+    if (threeKids) {
+      playerRender.sprite = threeSprite;
+      MusicManager.twoKidMode = false;
+    } else {
+      playerRender.sprite = twoSprite;
+      MusicManager.twoKidMode = true;
+    }
+    distance = initDistance;
 
   }
 
@@ -107,8 +124,9 @@ public class GameManager : MonoBehaviour
           isWinner = true;
           CutsceneManager.panelsPath = CUTSCENE_PATHS[END_SCENE];
           SceneManager.LoadScene(cutScene);
-        } else if (distance >= MID_CUTSCENE_DIST) {
+        } else if (distance >= MID_CUTSCENE_DIST && !doneScene1) {
           // load middle cutscene
+          doneScene1 = true;
           CutsceneManager.panelsPath = CUTSCENE_PATHS[MID_SCENE];
           SceneManager.LoadScene(cutScene);
         }
@@ -118,12 +136,12 @@ public class GameManager : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.B)) {
         startRestab();
       }
-      if (Input.GetKeyDown(KeyCode.D)) {
-        startReaction();
-      }
-      if (Input.GetKeyDown(KeyCode.R)) {
-        startReaction();
-      }
+      // if (Input.GetKeyDown(KeyCode.D)) {
+      //   startReaction();
+      // }
+      // if (Input.GetKeyDown(KeyCode.R)) {
+      //   startReaction();
+      // }
       if (miniOver) {
         if (questionValue < 0 && !miniWin) {
           miniOver = false;

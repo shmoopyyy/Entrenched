@@ -11,12 +11,22 @@ public class CutsceneManager : MonoBehaviour
   private int numPanels = 0;
   private int currentPanel = 0;
   private GameManager GM;
+  public AudioSource source;
+  public AudioClip[] clips;
 
   public void nextPanel()
   {
+    // random choice of sound
+    source.PlayOneShot(clips[Random.Range(0, clips.Length)]);
     Debug.Log("old panel is " + currentPanel);
     currentPanel = Mathf.Min(currentPanel + 1, numPanels);
     if (currentPanel >= numPanels) {
+      if (GameManager.startedOnce) {
+        GameManager.threeKids = true;
+        GameManager.initDistance = GameManager.MID_CUTSCENE_DIST;
+      } else {
+        GameManager.startedOnce = true;
+      }
       SceneManager.LoadScene("MainGame");
     } else {
       panelView.sprite = panels[currentPanel];

@@ -9,7 +9,9 @@ public class TitleScreen : MonoBehaviour
   public void StoryModeButton()
   {
     GameManager.storyModeEnabled = true;
-    SceneManager.LoadScene(mainScene);
+    GameManager.initDistance = 0;
+
+    // SceneManager.LoadScene(mainScene);
   }
 
   public void EndlessModeButton()

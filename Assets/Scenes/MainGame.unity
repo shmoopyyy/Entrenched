@@ -176,9 +176,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5354627409228272216, guid: aa60d7f00730243bead3e76930966657, type: 3}
+      propertyPath: inkFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 9100d0c63c91748cc818bdc91a334261, type: 3}
+    - target: {fileID: 5354627409228272216, guid: aa60d7f00730243bead3e76930966657, type: 3}
       propertyPath: textBox
       value: 
       objectReference: {fileID: 1507187765}
+    - target: {fileID: 5354627409228272216, guid: aa60d7f00730243bead3e76930966657, type: 3}
+      propertyPath: dialogSet
+      value: 
+      objectReference: {fileID: 994352272}
     - target: {fileID: 5354627409228272216, guid: aa60d7f00730243bead3e76930966657, type: 3}
       propertyPath: optionPanel
       value: 
@@ -186,7 +194,7 @@ PrefabInstance:
     - target: {fileID: 5354627409228272216, guid: aa60d7f00730243bead3e76930966657, type: 3}
       propertyPath: stabilityScoreText
       value: 
-      objectReference: {fileID: 1507187763}
+      objectReference: {fileID: 0}
     - target: {fileID: 7654403229796820117, guid: aa60d7f00730243bead3e76930966657, type: 3}
       propertyPath: m_Name
       value: DialogueManager
@@ -1111,6 +1119,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &994352272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4377794324176431307, guid: a327b4b862d8d43e8aa2ca9d79e4a1b4, type: 3}
+  m_PrefabInstance: {fileID: 1507187762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1128265288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1662,22 +1675,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8141364504974403150, guid: a327b4b862d8d43e8aa2ca9d79e4a1b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2794497249239431220, guid: a327b4b862d8d43e8aa2ca9d79e4a1b4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a327b4b862d8d43e8aa2ca9d79e4a1b4, type: 3}
---- !u!114 &1507187763 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4312551014405324082, guid: a327b4b862d8d43e8aa2ca9d79e4a1b4, type: 3}
-  m_PrefabInstance: {fileID: 1507187762}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1507187764 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5937569427954943023, guid: a327b4b862d8d43e8aa2ca9d79e4a1b4, type: 3}
@@ -2034,9 +2041,12 @@ MonoBehaviour:
   - Cutscenes/Opening
   - Cutscenes/Middle
   - Cutscenes/Ending
+  miniWin: 0
+  questionValue: 0
+  nextDialogue: 0
+  dialogSet: {fileID: 994352272}
   distance: 0
   timeOn: 1
-  score: 0
   stability: 100
   numStrikes: 0
   boxGamePrefab: {fileID: 6042660410291414887, guid: 2f8e28140ddd2421880b25da56719e8f, type: 3}

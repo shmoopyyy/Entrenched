@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
   public string mainScene = "MainGame";
+  public string gameOverScene = "GameOver";
   public const int STRIKE_LIMIT = 3;
   public const int STABILITY_LIMIT = 100;
   public const double DISTANCE_SCALAR = 1.0;
@@ -25,6 +26,11 @@ public class GameManager : MonoBehaviour
     "Cutscenes/Ending"
   };
 
+  public bool miniWin = false;
+  public int questionValue = 0;
+  public bool nextDialogue = false;
+  public GameObject dialogSet;
+
   // Singleton instance
   public static GameManager instance;
   void Awake()
@@ -39,7 +45,6 @@ public class GameManager : MonoBehaviour
   public static bool isWinner = false;
   public double distance = 0;
   public bool timeOn = true;
-  public int score = 0;
   public float stability = STABILITY_LIMIT;
   public int numStrikes = 0;
   public static bool storyModeEnabled = true;
@@ -56,6 +61,26 @@ public class GameManager : MonoBehaviour
 
   }
 
+  public void startRestab()
+  {
+    RestabilizeGame minigame = Instantiate(boxGamePrefab);
+    minigame.transform.position += new Vector3(0, 0, -3);
+  }
+
+  public void startDDR()
+  {
+    timeOn = false;
+    DDRGame minigame = Instantiate(ddrGamePrefab);
+    minigame.transform.position += new Vector3(0, 0, -3);
+  }
+
+  public void startReaction()
+  {
+    timeOn = false;
+    ReactionGame minigame = Instantiate(reactionGamePrefab);
+    minigame.transform.position += new Vector3(0, 0, -3);
+  }
+
   // Update is called once per frame
   void Update()
   {
@@ -65,6 +90,8 @@ public class GameManager : MonoBehaviour
         stability -= (Time.deltaTime * STABILITY_SCALAR);
       } else {
         stability = 0;
+        isWinner = false;
+        SceneManager.LoadScene(gameOverScene);
       }
 
       // If story mode on, check if reached cutscene distance
@@ -83,18 +110,13 @@ public class GameManager : MonoBehaviour
 
       // Temporary minigame activators
       if (Input.GetKeyDown(KeyCode.B)) {
-        RestabilizeGame minigame = Instantiate(boxGamePrefab);
-        minigame.transform.position += new Vector3(0, 0, -3);
+        startRestab();
       }
       if (Input.GetKeyDown(KeyCode.D)) {
-        timeOn = false;
-        DDRGame minigame = Instantiate(ddrGamePrefab);
-        minigame.transform.position += new Vector3(0, 0, -3);
+        startReaction();
       }
       if (Input.GetKeyDown(KeyCode.R)) {
-        timeOn = false;
-        ReactionGame minigame = Instantiate(reactionGamePrefab);
-        minigame.transform.position += new Vector3(0, 0, -3);
+        startReaction();
       }
     }
 

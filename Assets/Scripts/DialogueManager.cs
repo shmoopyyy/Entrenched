@@ -10,29 +10,32 @@ public class DialogueManager : MonoBehaviour
     public GameObject textBox;
     public GameObject customButton;
     public GameObject optionPanel;
-    public Text stabilityScoreText; // UI Text element to display stability score
+    public GameObject dialogSet;
 
+    private GameManager GM;
     private Story story;
     private Text nametag;
     private Text message;
-    private int stabilityScore = 10; // Initial stability score, adjust as needed
+    private int stabilityScore = 0; // Initial stability score, adjust as needed
 
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameManager.instance;
         story = new Story(inkFile.text);
         nametag = textBox.transform.GetChild(0).GetComponent<Text>();
         message = textBox.transform.GetChild(1).GetComponent<Text>();
-        stabilityScoreText.text = "Stability: " + stabilityScore.ToString();
+        GM.dialogSet.SetActiveRecursively(false);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (GM.nextDialogue)
         {
+          GM.nextDialogue = false;
             if (story.canContinue)
             {
-                nametag.text = "Character Name"; // Replace with actual character name
+                nametag.text = "Passerby"; // Replace with actual character name
                 AdvanceDialogue();
 
                 if (story.currentChoices.Count != 0)
@@ -55,9 +58,9 @@ public class DialogueManager : MonoBehaviour
 
     void AdvanceDialogue()
     {
+        // dialogSet.SetActive(true);
         string currentSentence = story.Continue();
         stabilityScore = (int)story.variablesState["stability"];
-        stabilityScoreText.text = "Stability: " + stabilityScore.ToString();
         ParseTags();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(currentSentence));
@@ -98,6 +101,13 @@ public class DialogueManager : MonoBehaviour
         }
         optionPanel.SetActive(false);
         AdvanceDialogue();
+        GM.questionValue = stabilityScore;
+        if(Random.Range(0,1) == 0) {
+          GM.startDDR();
+        } else {
+          GM.startReaction();
+        }
+        GM.dialogSet.SetActiveRecursively(false);
     }
 
     void ParseTags()

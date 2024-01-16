@@ -23,13 +23,13 @@ public class SuspicionDisplay : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (GM.numStrikes >= 0) {
+    if (GM.numStrikes >= 1) {
       spriteRenderer0.sprite = filled;
     }
-    if (GM.numStrikes >= 1) {
+    if (GM.numStrikes >= 2) {
       spriteRenderer1.sprite = filled;
     }
-    if (GM.numStrikes >= 2) {
+    if (GM.numStrikes >= 3) {
       spriteRenderer2.sprite = filled;
     }
 

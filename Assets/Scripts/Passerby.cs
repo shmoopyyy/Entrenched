@@ -13,6 +13,7 @@ public class Passerby : MonoBehaviour
   public float moveSpeed = 35;
   private GameManager GM;
   public bool prompted = false;
+  public GameObject dialogSet;
 
   // Start is called before the first frame update
   void Start()
@@ -31,6 +32,8 @@ public class Passerby : MonoBehaviour
       if (!prompted && currPos <= promptBound) {
         prompted = true;
         Debug.Log("Asking a question!");
+        GM.nextDialogue = true;
+        GM.dialogSet.SetActiveRecursively(true);
       }
       if (currPos >= leftBound) {
         transform.Translate(Vector2.left *moveSpeed * Time.deltaTime);

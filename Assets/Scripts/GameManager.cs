@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
   {
     Debug.Log("This is the start of game manager.");
     Debug.Log("Story mode on?: " + storyModeEnabled);
-    if (threeKids) {
+    if (threeKids || !storyModeEnabled) {
       playerRender.sprite = threeSprite;
       MusicManager.twoKidMode = false;
     } else {
@@ -135,12 +135,7 @@ public class GameManager : MonoBehaviour
       if (Input.GetKeyDown(KeyCode.B)) {
         startRestab();
       }
-      // if (Input.GetKeyDown(KeyCode.D)) {
-      //   startReaction();
-      // }
-      // if (Input.GetKeyDown(KeyCode.R)) {
-      //   startReaction();
-      // }
+
       if (miniOver) {
         if (questionValue < 0 && !miniWin) {
           miniOver = false;

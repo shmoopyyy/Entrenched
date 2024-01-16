@@ -68,6 +68,11 @@ public class MusicManager : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    if (twoKidMode) {
+      mainTheme2.mute = false;
+    } else {
+      mainTheme3.mute = false;
+    }
       
   }
 }

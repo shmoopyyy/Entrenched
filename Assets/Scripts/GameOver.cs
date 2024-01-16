@@ -24,6 +24,10 @@ public class GameOver : MonoBehaviour
     } else {
       marqueeText.text = "Game Over!";
     }
+    GameManager.startedOnce = false;
+    GameManager.isWinner = false;
+    GameManager.initDistance = 0;
+    GameManager.doneScene1 = false;
 
   }
 

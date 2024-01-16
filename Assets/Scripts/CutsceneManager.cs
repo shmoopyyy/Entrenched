@@ -21,13 +21,21 @@ public class CutsceneManager : MonoBehaviour
     Debug.Log("old panel is " + currentPanel);
     currentPanel = Mathf.Min(currentPanel + 1, numPanels);
     if (currentPanel >= numPanels) {
-      if (GameManager.startedOnce) {
+      if (panelsPath == "Cutscenes/Middle") {
         GameManager.threeKids = true;
+        MusicManager.twoKidMode = true;
         GameManager.initDistance = GameManager.MID_CUTSCENE_DIST;
       } else {
         GameManager.startedOnce = true;
+        GameManager.threeKids = false;
+        MusicManager.twoKidMode = true;
       }
-      SceneManager.LoadScene("MainGame");
+      if (panelsPath == "Cutscenes/Ending") {
+        GameManager.isWinner = true;
+        SceneManager.LoadScene("GameOver");
+      } else {
+        SceneManager.LoadScene("MainGame");
+      }
     } else {
       panelView.sprite = panels[currentPanel];
     }

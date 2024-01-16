@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
   public const float STABILITY_SCALAR = 1.2f;
 
   /* Story mode info */
-  public const float MID_CUTSCENE_DIST = 10;
-  public const float END_CUTSCENE_DIST = 20;
+  public const float MID_CUTSCENE_DIST = 100;
+  public const float END_CUTSCENE_DIST = 200;
   
   public string cutScene = "Cutscene";
   public const int OPEN_SCENE = 0;

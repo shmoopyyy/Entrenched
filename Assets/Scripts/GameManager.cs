@@ -56,7 +56,6 @@ public class GameManager : MonoBehaviour
   public SpriteRenderer playerRender;
   public Sprite threeSprite;
   public Sprite twoSprite;
-  public static bool doneScene0 = false;
   public static bool doneScene1 = false;
   public static bool muffleMusic = false;
 

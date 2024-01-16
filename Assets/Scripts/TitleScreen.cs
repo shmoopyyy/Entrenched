@@ -10,8 +10,10 @@ public class TitleScreen : MonoBehaviour
   {
     GameManager.storyModeEnabled = true;
     GameManager.initDistance = 0;
+    GameManager.startedOnce = false;
+    CutsceneManager.panelsPath = "Cutscenes/Opening";
+    SceneManager.LoadScene("Cutscene");
 
-    // SceneManager.LoadScene(mainScene);
   }
 
   public void EndlessModeButton()

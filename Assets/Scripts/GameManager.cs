@@ -87,6 +87,10 @@ public class GameManager : MonoBehaviour
   void Update()
   {
     if (timeOn) {
+      if (numStrikes >= STRIKE_LIMIT) {
+        isWinner = false;
+        SceneManager.LoadScene(gameOverScene);
+      }
       distance += (Time.deltaTime * DISTANCE_SCALAR);
       if (stability > 0) {
         stability -= (Time.deltaTime * STABILITY_SCALAR);
